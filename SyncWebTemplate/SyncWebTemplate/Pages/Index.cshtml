@@ -1,0 +1,128 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<script>
+    function selectDBase() {
+        var sel = document.getElementById("selectTable");
+        sel.hidden = false;
+    }
+
+    function selectFields() {
+        var sel = document.getElementById("selectField");
+        sel.hidden = false;
+
+        //div divSQL
+        var di = document.getElementById("divSQL");
+        di.hidden = false;
+    }
+
+    function selectDBaseSQL() {
+        var sel = document.getElementById("selectTableSQL");
+        sel.hidden = false;
+    }
+
+    function selectFieldsSQL() {
+        var sel = document.getElementById("selectFieldSQL");
+        sel.hidden = false;
+
+        var btn = document.getElementById("btnSave");
+        btn.hidden = false;
+    }
+
+    function showResult() {
+        var res = document.getElementById("divResult");
+        res.hidden = false;
+
+    }
+</script>
+
+<form method="post">
+    <div class="container-fluid border p-2 bg-white">
+        <p><b>Select the database from DB2:</b></p>
+        <div class="row align-items-start">
+            <div class="col">
+                <select class="form-control-sm" id="selectDatabase" onchange="javascript: selectDBase();">
+                    <option value="value">Select the database</option>
+                    <option value="value">Database 1</option>
+                    <option value="value">Database 2</option>
+                    <option value="value">Database 3</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-control-sm" id="selectTable" hidden onchange="javascript: selectFields();">
+                    <option value="value">Select the table</option>
+                    <option value="value">Table 1</option>
+                    <option value="value">Table 2</option>
+                    <option value="value">Table 3</option>
+                </select>
+            </div>
+            <div class="col">
+                <select multiple="true" class="form-control-plaintext" hidden id="selectField">
+                    <option value="value">Field 1</option>
+                    <option value="value">Field 2</option>
+                    <option value="value">Field 3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container-fluid border p-2 bg-white" id="divSQL" hidden>
+        <p><b>Select the database from SQL:</b></p>
+        <div class="row align-items-start">
+            <div class="col">
+                <select class="form-control-sm" id="selectDatabaseSQL" onchange="javascript: selectDBaseSQL();">
+                    <option value="value">Select the database</option>
+                    <option value="value">Database 1</option>
+                    <option value="value">Database 2</option>
+                    <option value="value">Database 3</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-control-sm" id="selectTableSQL" hidden onchange="javascript: selectFieldsSQL();">
+                    <option value="value">Select the table</option>
+                    <option value="value">Table 1</option>
+                    <option value="value">Table 2</option>
+                    <option value="value">Table 3</option>
+                </select>
+            </div>
+            <div class="col">
+                <select multiple="true" class="form-control-plaintext" hidden id="selectFieldSQL">
+                    <option value="value">Field 1</option>
+                    <option value="value">Field 2</option>
+                    <option value="value">Field 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="row align-items-start">
+            <div class="col-12 text-center">
+                <input type="button" onclick="javascript: showResult();" value="Save" id="btnSave" class="btn btn-primary" hidden />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container-fluid border p-2 bg-white" id="divResult" hidden>
+        <p><b>Result:</b></p>
+        <div class="row align-items-start">
+            <table class="table-hover p-md-3 border-0">
+                <tr style="background-color:#cecece">
+                    <th>Database</th>
+                    <th>Table</th>
+                    <th>Field</th>
+                </tr>
+                <tr>
+                    <td>Database 1</td>
+                    <td>Table 1</td>
+                    <td>Field 1 <br /> Field 2</td>
+                </tr>
+                <tr>
+                    <td>Database 2</td>
+                    <td>Table 1</td>
+                    <td>Field 1 <br /> Field 2</td>
+                </tr>
+            </table> 
+        </div>
+    </div>
+</form>
